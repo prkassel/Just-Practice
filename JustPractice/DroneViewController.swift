@@ -22,9 +22,11 @@ class DroneViewController: UIViewController {
         var isToggled: Bool
         var oscillator: Int
         var amplitude: Double
+        var role: String
     }
     
     var notes: [Note] = []
+    var isPlaying = false
 
     func createOscillator(frequency: Double) -> AKOscillator {
         let oscillator = AKOscillator(waveform: AKTable(.triangle))
@@ -43,9 +45,10 @@ class DroneViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        notes.append(Note(isToggled: true, oscillator: 0, amplitude: 2.0))
-        notes.append(Note(isToggled: true, oscillator: 1, amplitude: 1.0))
-        notes.append(Note(isToggled: true, oscillator: 2, amplitude: 1.5))
+        notes.append(Note(isToggled: true, oscillator: 0, amplitude: 2.0, role: "Root"))
+        notes.append(Note(isToggled: true, oscillator: 1, amplitude: 1.0, role: "Third"))
+        notes.append(Note(isToggled: true, oscillator: 2, amplitude: 1.5, role: "Fifth"))
+        
         
         for i in 0 ... notes.count - 1{
             oscillators[i].amplitude = notes[i].amplitude
@@ -62,19 +65,40 @@ class DroneViewController: UIViewController {
     }
     
     @IBOutlet weak var NotePicker: UIPickerView!
-    
-    
 
+    @IBOutlet weak var RootSwitch: UISwitch!
+    
+    @IBOutlet weak var ThirdSwitch: UISwitch!
+    
+    @IBOutlet weak var FifthSwitch: UISwitch!
+    
+    @objc func toggleChanged(_ sender:UISwitch) {
+        let index = notes.firstIndex(where: {$0.role == sender.accessibilityLabel})
+        
+        if sender.isOn {
+            notes[index!].isToggled = true
+            if isPlaying {
+                oscillators[notes[index!].oscillator].play()
+            }
+        } else {
+            notes[index!].isToggled = false
+            oscillators[notes[index!].oscillator].stop()
+        }
+    }
+    
+    
     @IBAction func ToggleDrone(_ sender: UIButton) {
-        if oscillators[0].isPlaying {
+        if isPlaying {
             oscillators.forEach { $0.stop() }
             sender.setTitle("Play", for: .normal)
+            isPlaying = false
         } else {
             for i in 0 ... notes.count - 1 {
                 if notes[i].isToggled {
                     oscillators[i].play()
                 }
             }
+            isPlaying = true
             sender.setTitle("Stop", for: .normal)
         }
     }
@@ -90,6 +114,9 @@ class DroneViewController: UIViewController {
         NotePicker.dataSource = self
         NotePicker.selectRow(settings.interval + 24, inComponent: 0, animated: true)
         
+        RootSwitch.addTarget(self, action: #selector(toggleChanged(_:)), for: .valueChanged)
+        ThirdSwitch.addTarget(self, action: #selector(toggleChanged(_:)), for: .valueChanged)
+        FifthSwitch.addTarget(self, action: #selector(toggleChanged(_:)), for: .valueChanged)
     }
 
 }
