@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02DA2B07DB42AAF3E3C954C8 /* Pods_JustPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FBDAADF8CD3F0107A0700BD /* Pods_JustPractice.framework */; };
 		938D3C7E23B68C0E00537BC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D3C7D23B68C0E00537BC3 /* AppDelegate.swift */; };
 		938D3C8023B68C0E00537BC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D3C7F23B68C0E00537BC3 /* SceneDelegate.swift */; };
-		938D3C8223B68C0E00537BC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D3C8123B68C0E00537BC3 /* ViewController.swift */; };
+		938D3C8223B68C0E00537BC3 /* DroneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D3C8123B68C0E00537BC3 /* DroneViewController.swift */; };
 		938D3C8523B68C0E00537BC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938D3C8323B68C0E00537BC3 /* Main.storyboard */; };
 		938D3C8723B68C1000537BC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 938D3C8623B68C1000537BC3 /* Assets.xcassets */; };
 		938D3C8A23B68C1000537BC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938D3C8823B68C1000537BC3 /* LaunchScreen.storyboard */; };
+		938D3C9523B698D100537BC3 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D3C9423B698D100537BC3 /* SettingsController.swift */; };
+		938D3C9723B6BCEC00537BC3 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D3C9623B6BCEC00537BC3 /* MusicController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FBDAADF8CD3F0107A0700BD /* Pods_JustPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JustPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		938D3C7A23B68C0E00537BC3 /* JustPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		938D3C7D23B68C0E00537BC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		938D3C7F23B68C0E00537BC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		938D3C8123B68C0E00537BC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		938D3C8123B68C0E00537BC3 /* DroneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewController.swift; sourceTree = "<group>"; };
 		938D3C8423B68C0E00537BC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		938D3C8623B68C1000537BC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		938D3C8923B68C1000537BC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		938D3C8B23B68C1000537BC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		938D3C9423B698D100537BC3 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		938D3C9623B6BCEC00537BC3 /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
+		C003E7BF3417EE7D76594EC0 /* Pods-JustPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustPractice.release.xcconfig"; path = "Target Support Files/Pods-JustPractice/Pods-JustPractice.release.xcconfig"; sourceTree = "<group>"; };
+		C79BE2E4F30AD75073AC7411 /* Pods-JustPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustPractice.debug.xcconfig"; path = "Target Support Files/Pods-JustPractice/Pods-JustPractice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DA2B07DB42AAF3E3C954C8 /* Pods_JustPractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85587549D17FAB03BB7B9DC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FBDAADF8CD3F0107A0700BD /* Pods_JustPractice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		938D3C7123B68C0E00537BC3 = {
 			isa = PBXGroup;
 			children = (
 				938D3C7C23B68C0E00537BC3 /* JustPractice */,
 				938D3C7B23B68C0E00537BC3 /* Products */,
+				C607A7EC065F07425CCA8233 /* Pods */,
+				85587549D17FAB03BB7B9DC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +75,34 @@
 		938D3C7C23B68C0E00537BC3 /* JustPractice */ = {
 			isa = PBXGroup;
 			children = (
+				938D3C9123B68D8200537BC3 /* Models */,
 				938D3C7D23B68C0E00537BC3 /* AppDelegate.swift */,
 				938D3C7F23B68C0E00537BC3 /* SceneDelegate.swift */,
-				938D3C8123B68C0E00537BC3 /* ViewController.swift */,
+				938D3C8123B68C0E00537BC3 /* DroneViewController.swift */,
 				938D3C8323B68C0E00537BC3 /* Main.storyboard */,
 				938D3C8623B68C1000537BC3 /* Assets.xcassets */,
 				938D3C8823B68C1000537BC3 /* LaunchScreen.storyboard */,
 				938D3C8B23B68C1000537BC3 /* Info.plist */,
 			);
 			path = JustPractice;
+			sourceTree = "<group>";
+		};
+		938D3C9123B68D8200537BC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				938D3C9423B698D100537BC3 /* SettingsController.swift */,
+				938D3C9623B6BCEC00537BC3 /* MusicController.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C607A7EC065F07425CCA8233 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C79BE2E4F30AD75073AC7411 /* Pods-JustPractice.debug.xcconfig */,
+				C003E7BF3417EE7D76594EC0 /* Pods-JustPractice.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +112,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 938D3C8E23B68C1000537BC3 /* Build configuration list for PBXNativeTarget "JustPractice" */;
 			buildPhases = (
+				86946B489D5F6082777A29B2 /* [CP] Check Pods Manifest.lock */,
 				938D3C7623B68C0E00537BC3 /* Sources */,
 				938D3C7723B68C0E00537BC3 /* Frameworks */,
 				938D3C7823B68C0E00537BC3 /* Resources */,
@@ -133,12 +172,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		86946B489D5F6082777A29B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JustPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		938D3C7623B68C0E00537BC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938D3C8223B68C0E00537BC3 /* ViewController.swift in Sources */,
+				938D3C9523B698D100537BC3 /* SettingsController.swift in Sources */,
+				938D3C9723B6BCEC00537BC3 /* MusicController.swift in Sources */,
+				938D3C8223B68C0E00537BC3 /* DroneViewController.swift in Sources */,
 				938D3C7E23B68C0E00537BC3 /* AppDelegate.swift in Sources */,
 				938D3C8023B68C0E00537BC3 /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +348,7 @@
 		};
 		938D3C8F23B68C1000537BC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C79BE2E4F30AD75073AC7411 /* Pods-JustPractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +367,7 @@
 		};
 		938D3C9023B68C1000537BC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C003E7BF3417EE7D76594EC0 /* Pods-JustPractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
