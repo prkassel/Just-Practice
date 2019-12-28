@@ -27,6 +27,7 @@ class DroneViewController: UIViewController {
     
     var notes: [Note] = []
     var isPlaying = false
+    var isMinor = false
 
     func createOscillator(frequency: Double) -> AKOscillator {
         let oscillator = AKOscillator(waveform: AKTable(.triangle))
@@ -34,6 +35,12 @@ class DroneViewController: UIViewController {
         oscillator.rampDuration = 0.0
         oscillator.start()
         return oscillator
+    }
+    
+    func updateOscillators(_ frequencies: Array<Double>) {
+        for i in 0 ... frequencies.count - 1 {
+            oscillators[i].frequency = frequencies[i]
+        }
     }
     
     lazy var oscillators = initialFrequencies.map {
@@ -107,9 +114,7 @@ class DroneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print(settings)
-        print(initialFrequencies)
+
         NotePicker.delegate = self
         NotePicker.dataSource = self
         NotePicker.selectRow(settings.interval + 24, inComponent: 0, animated: true)
@@ -136,8 +141,11 @@ extension DroneViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         let interval = row - 24
-        print (interval)
-        settingsController.saveUserSettings(settings.concertPitch, Tempo: 80.0, Interval: interval)
+        let frequencies = musicController.getTriadNotes(settings.concertPitch, interval, isMinor)
+
+        settingsController.saveUserSettings(settings.concertPitch, settings.tempo, interval)
+        updateOscillators(frequencies)
     }
 }

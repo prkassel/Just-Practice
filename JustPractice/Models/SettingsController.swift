@@ -31,7 +31,7 @@ class SettingsController {
         
     }
     
-    func saveUserSettings(_ concertPitch: Double, Tempo: Double, Interval: Int){
+    func saveUserSettings(_ concertPitch: Double, _ Tempo: Double, _ Interval: Int){
         
         Defaults.userDefault.set([
             Defaults.CONCERTPITCH: concertPitch,
