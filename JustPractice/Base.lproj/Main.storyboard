@@ -16,9 +16,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktL-Za-CAc">
-                                <rect key="frame" x="151" y="720" width="113" height="30"/>
+                                <rect key="frame" x="150" y="720" width="125" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -30,16 +30,19 @@
                                 <rect key="frame" x="103" y="385" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Root"/>
+                                <color key="onTintColor" red="0.45490196078431372" green="0.72549019607843135" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auX-MN-VEY" userLabel="Third">
                                 <rect key="frame" x="189" y="385" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Third"/>
+                                <color key="onTintColor" red="0.45490196078431372" green="0.72549019607843135" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hp2-bZ-RAG" userLabel="Fifth">
                                 <rect key="frame" x="265" y="385" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Fifth"/>
+                                <color key="onTintColor" red="0.4549019608" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Mx-ry-wQg" userLabel="NotePicker">
                                 <rect key="frame" x="0.0" y="452" width="414" height="216"/>
@@ -52,8 +55,9 @@
                                     <segment title="Major"/>
                                     <segment title="minor"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.4549019608" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="TriadChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="m4h-rm-zVc"/>
+                                    <action selector="TriadChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="TKO-mb-hH7"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>

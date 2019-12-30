@@ -27,7 +27,7 @@ class DroneViewController: UIViewController {
     
     var notes: [Note] = []
     var isPlaying = false
-    var isMinor = true
+    var isMinor = false
 
     func createOscillator(frequency: Double) -> AKOscillator {
         let oscillator = AKOscillator(waveform: AKTable(.triangle))
@@ -42,6 +42,10 @@ class DroneViewController: UIViewController {
         let frequencies = musicController.getTriadNotes(settings.concertPitch, interval, isMinor)
         
         for i in 0 ... frequencies.count - 1 {
+            if notes[i].role == "Third" {
+                notes[i].amplitude = (isMinor ? 0.75 : 1.0)
+                oscillators[i].amplitude = notes[i].amplitude
+            }
             oscillators[i].frequency = frequencies[i]
         }
     }
@@ -80,6 +84,7 @@ class DroneViewController: UIViewController {
         isMinor = Bool(truncating: sender.selectedSegmentIndex as NSNumber)
         let interval = NotePicker.selectedRow(inComponent: 0) - 24
         updateOscillators(interval)
+        print(sender.selectedSegmentIndex, isMinor)
     }
     
     
