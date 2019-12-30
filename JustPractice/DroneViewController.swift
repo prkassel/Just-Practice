@@ -27,7 +27,7 @@ class DroneViewController: UIViewController {
     
     var notes: [Note] = []
     var isPlaying = false
-    var isMinor = false
+    var isMinor = true
 
     func createOscillator(frequency: Double) -> AKOscillator {
         let oscillator = AKOscillator(waveform: AKTable(.triangle))
@@ -37,7 +37,10 @@ class DroneViewController: UIViewController {
         return oscillator
     }
     
-    func updateOscillators(_ frequencies: Array<Double>) {
+    func updateOscillators(_ interval: Int) {
+        
+        let frequencies = musicController.getTriadNotes(settings.concertPitch, interval, isMinor)
+        
         for i in 0 ... frequencies.count - 1 {
             oscillators[i].frequency = frequencies[i]
         }
@@ -71,6 +74,15 @@ class DroneViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func TriadChanged(_ sender: UISegmentedControl) {
+        
+        isMinor = Bool(truncating: sender.selectedSegmentIndex as NSNumber)
+        let interval = NotePicker.selectedRow(inComponent: 0) - 24
+        updateOscillators(interval)
+    }
+    
+    
     @IBOutlet weak var NotePicker: UIPickerView!
 
     @IBOutlet weak var RootSwitch: UISwitch!
@@ -91,8 +103,14 @@ class DroneViewController: UIViewController {
             notes[index!].isToggled = false
             oscillators[notes[index!].oscillator].stop()
         }
+        
+        if numberOfNotesPlaying() < 1 {
+            playButton.setTitle("Play", for: .normal)
+            isPlaying = false
+        }
     }
     
+    @IBOutlet weak var playButton: UIButton!
     
     @IBAction func ToggleDrone(_ sender: UIButton) {
         if isPlaying {
@@ -105,12 +123,25 @@ class DroneViewController: UIViewController {
                     oscillators[i].play()
                 }
             }
-            isPlaying = true
-            sender.setTitle("Stop", for: .normal)
+            
+            if numberOfNotesPlaying() > 0 {
+                isPlaying = true
+                sender.setTitle("Stop", for: .normal)
+            }
         }
     }
     
-    
+    func numberOfNotesPlaying() -> Int {
+        
+        var notesPlaying = 0
+        
+        for i in 0 ... notes.count - 1 {
+            if notes[i].isToggled {
+                notesPlaying += 1
+            }
+        }
+        return notesPlaying
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,9 +174,7 @@ extension DroneViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         let interval = row - 24
-        let frequencies = musicController.getTriadNotes(settings.concertPitch, interval, isMinor)
-
         settingsController.saveUserSettings(settings.concertPitch, settings.tempo, interval)
-        updateOscillators(frequencies)
+        updateOscillators(interval)
     }
 }

@@ -45,6 +45,17 @@
                                 <rect key="frame" x="0.0" y="452" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w9T-ub-3zX">
+                                <rect key="frame" x="153" y="281" width="109" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Major"/>
+                                    <segment title="minor"/>
+                                </segments>
+                                <connections>
+                                    <action selector="TriadChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="m4h-rm-zVc"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -54,6 +65,7 @@
                         <outlet property="NotePicker" destination="2Mx-ry-wQg" id="9s9-4N-tNY"/>
                         <outlet property="RootSwitch" destination="kfc-Lu-hqH" id="0Ka-2M-Wvl"/>
                         <outlet property="ThirdSwitch" destination="auX-MN-VEY" id="m0P-wB-cmE"/>
+                        <outlet property="playButton" destination="ktL-Za-CAc" id="oS6-uB-dUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
